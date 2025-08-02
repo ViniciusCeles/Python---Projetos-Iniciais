@@ -82,7 +82,5 @@ while True:
     elif escolha == 4: #Sair
         print('Saindo...')
         break
-        
 
-        
-
+#olha meu comentario aqui
