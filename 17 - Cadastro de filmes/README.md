@@ -10,6 +10,10 @@ Listar todos os filmes: Aqui, o programa mostra todos os filmes que já foram ca
 
 Buscar filmes por gênero: O programa coleta todos os gêneros disponíveis entre os filmes cadastrados e os mostra como opções. O usuário escolhe um deles e o sistema lista apenas os filmes que pertencem ao gênero selecionado.
 
+Alterar filme: Lista filmes e pede para escolher uma das opções e em seguida solicita qual atributo do filme o usuário gostaria de alterar e no final altera o atributo após o usuário digitar o valor
+
+Excluir filme: Pergunta qual dos filmes enumerados o usuario gostaria de excluir e no fim exclui se for um valor valido
+
 Sair: Finaliza o programa.
 
 Antes de qualquer ação, o programa verifica se a opção escolhida é válida. Se o usuário digitar algo errado, como uma letra ou um número fora das opções, ele avisa e volta a mostrar o menu. Durante o cadastro de um filme, também verifica se o ano informado contém apenas números.

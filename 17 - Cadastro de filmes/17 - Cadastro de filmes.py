@@ -2,7 +2,9 @@
 # 1. Cadastrar novo filme
 # 2. Listar todos os filmes
 # 3. Buscar filmes por gênero
-# 4. Sair
+# 4. Alterar filme
+# 5. Excluir filme
+# 6. Sair
 
 # Cada filme deve ser armazenado como um dicionário com as seguintes informações:
 # título
@@ -10,17 +12,9 @@
 # gênero
 # Os filmes devem ser armazenados em uma lista.
 
-# Ao escolher a opção 3, o usuário digita um gênero e o programa mostra todos os filmes daquele gênero.
-
-# Dica:
-# Use um loop while para manter o menu funcionando até que o usuário escolha sair. Use input() para coletar
-
-# Extras (se quiser ir além):
-# Validar se o ano é um número.
-# Permitir cadastrar mais de um gênero por filme.
 # Salvar os dados em um arquivo .txt (nível intermediário).
 
-opcoes = ['Cadastrar novo filme', 'Listar todos os filmes', 'Buscar filmes por gênero', 'Sair']
+opcoes = ['Cadastrar novo filme', 'Listar todos os filmes', 'Buscar filmes por gênero','Alterar filme', 'Excluir filme', 'Sair']
 filmes = []
 generos = set()
 
@@ -57,8 +51,7 @@ while True:
         for filme in filmes:
             print(f'Titulo: {filme['titulo']}')
             print(f'Ano: {filme['ano']}')
-            print(f'Genero: {filme['genero']}')
-            print()
+            print(f'Genero: {filme['genero']}\n')
 
     elif escolha == 3: #Filtrar filmes
         print('Escolha um dos generos:')
@@ -79,6 +72,60 @@ while True:
             if filme['genero'] == genero_escolhido:
                 print(f" - {filme['titulo']} ({filme['ano']})")
 
-    elif escolha == 4: #Sair
+    elif escolha == 4: #Alterar filme
+        print('Filmes cadastrados:')
+        for i, filme in enumerate(filmes, 1):
+            print(f'{i}) Titulo: {filme['titulo']}')
+            print(f'  Ano: {filme['ano']}')
+            print(f'  Genero: {filme['genero']}')
+            print()
+        try:
+            alterar = int(input('Escolha um dos filmes: '))
+            if alterar < 1 or alterar > len(filmes):
+                print('Digite um numero valido')
+                continue
+            alterar -= 1
+            print(f'1) Titulo: {filmes[alterar]['titulo']}')
+            print(f'2) Ano: {filmes[alterar]['ano']}')
+            print(f'3) Genero: {filmes[alterar]['genero']}')
+            alterar_atributo = int(input('Escolha o que deseja alterar: '))
+            
+            if alterar_atributo == 1:
+                alt_titulo = input('Digite o titulo: ')
+                filmes[alterar]['titulo'] = alt_titulo
+            if alterar_atributo == 2:
+                alt_ano = input('Digite o ano: ')
+                if not alt_ano.isdigit():
+                    print('Digite apenas numeros para o ano')
+                    continue
+                filmes[alterar]['ano'] = alt_ano
+            if alterar_atributo == 3:
+                alt_genero = input('Digite o genero: ')
+                filmes[alterar]['genero'] = alt_genero
+            else:
+                print('Escolha uma opção válida')
+
+        except TypeError:
+            print('Digite apenas numeros para selecionar uma das opções')
+
+    elif escolha == 5: #Excluir filme
+        print('Filmes cadastrados:')
+        for i, filme in enumerate(filmes, 1):
+            print(f'{i}) Titulo: {filme['titulo']}')
+            print(f'Ano: {filme['ano']}')
+            print(f'Genero: {filme['genero']}')
+            print()
+        try:
+            excluir = int(input('Digite qual filme deseja excluir: '))
+            if excluir < 1 or excluir > len(filmes):
+                print('Digite numeros validos')
+                continue
+            excluir -= 1
+            filmes.pop(excluir)
+            print('filme excluido')
+        except ValueError:
+            print('Digite apenas numeros')
+
+    elif escolha == 6: #Sair
         print('Saindo...')
         break
