@@ -12,7 +12,14 @@
 # gênero
 # Os filmes devem ser armazenados em uma lista.
 
+#PENDENCIAS:
 # Salvar os dados em um arquivo .txt (nível intermediário).
+# Substituir códigos repetidos por funções
+    # def exibir filmes
+    # def cadastrar filmes
+    # def buscar por generos
+    # def alterar filmes 
+    # def excluir filmes
 
 opcoes = ['Cadastrar novo filme', 'Listar todos os filmes', 'Buscar filmes por gênero','Alterar filme', 'Excluir filme', 'Sair']
 filmes = []
@@ -33,7 +40,7 @@ while True:
             print(f'\nEscolha uma opção de 1 a {len(opcoes)}\n')
 
     except ValueError:
-        print(f'\nUma opção de 1 a {len(opcoes)}. Letras não são uma opção válida\n')
+        print(f'Uma opção de 1 a {len(opcoes)}. Letras não são uma opção válida\n')
 
     if escolha == 1: #Cadatrar filme
       titulo = input('Digite o titulo do filme: ')  
@@ -105,7 +112,7 @@ while True:
             else:
                 print('Escolha uma opção válida')
 
-        except TypeError:
+        except ValueError:
             print('Digite apenas numeros para selecionar uma das opções')
 
     elif escolha == 5: #Excluir filme
