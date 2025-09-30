@@ -62,10 +62,10 @@ tabela_extraida['Service Line'] = '-'
 tabela_extraida['Platform/Sub-Service Line'] = tabela_extraida['Service Line']
 
 if hoje.weekday() == 0:
-    dois_dias_atras = (hoje - timedelta(days=2))
+    tres_dias_atras = (hoje - timedelta(days=3))
     tabela_extraida['Opened'] = pd.to_datetime(tabela_extraida['Opened'])
     tabela_extraida = tabela_extraida[
-        (tabela_extraida['Opened'].dt.date >= dois_dias_atras) &
+        (tabela_extraida['Opened'].dt.date >= tres_dias_atras) &
         (tabela_extraida['Opened'].dt.date < hoje)
     ]
 
